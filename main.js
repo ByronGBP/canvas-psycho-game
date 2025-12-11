@@ -11,9 +11,10 @@ var blackCircle;
 var squaresAnimated;
 var shadow;
 var miss = 0;
+var hitsUser = 0;
+var comboUser = 0;
 
 window.onload = function() {
-  $(".select").hide();
   ctx.canvas.width  = window.innerWidth;
   ctx.canvas.height = window.innerHeight;
 
@@ -40,6 +41,7 @@ function animate() {
 
   }
   else {
+    $('.ui-combo').hide();
     drawText();
   }
 }
@@ -49,4 +51,5 @@ function playMusic(){
   createBackground();
   intervalMusic = setInterval(function(){ _checkAllSquareForDraw();}, 1);
   animate();
+  $('.ui-combo').show();
 }

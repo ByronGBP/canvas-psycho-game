@@ -22,11 +22,16 @@ function ShadowIncreise() {
   return {
     increase: function() {
       index = _increiseShadow(index);
+      hitsUser++;
+      combo++;
+      $('.ui-combo span').text(`${combo}`)
     },
     setIndexToZero: function() {
       index = 0;
+      combo = 0;
       ctx.shadowBlur = 0;
       ctx.shadowColor = null;
+      $('.ui-combo span').text(`${combo}`)
     }
   };
 }

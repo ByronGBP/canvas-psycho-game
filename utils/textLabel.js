@@ -28,10 +28,24 @@ function _drawCanvasText(text) {
 }
 
 function drawText() {
-  if (miss < 11){
-    _drawCanvasText("Awesome! Just " + miss + " miss.");
+
+  $(".hits").text(hitsUser);
+  $(".missed").text(miss);
+  var ratio = hitsUser/miss
+  $(".ratio").text(ratio.toFixed(2));
+  $(".menu.end").show();
+
+  if (ratio === Infinity) {
+    $(".message").text(`🤩`);
+  } else if (ratio > 1) {
+    $(".message").text(`👍`);
+  } else {
+    $(".message").text(`👎`);
   }
-  else {
-    _drawCanvasText("You sucks!!!! "+ miss + " miss.");
-  }
+  // if (miss < 11){
+  //   _drawCanvasText("Awesome! Just " + miss + " miss.");
+  // }
+  // else {
+  //   _drawCanvasText("You suck!!!! "+ miss + " miss.");
+  // }
 }

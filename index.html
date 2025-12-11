@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,8 +10,30 @@
   <title>Document</title>
 
 </head>
+
 <body>
-  <input type="file" class="select" onchange='readText(this)' />
+  <!-- <input type="file" class="select" onchange='readText(this)' /> -->
+
+  <div class="menu">
+    <h1>Canvas music game</h1>
+    <p>Use the arrows to destroy the squares at different rythms!</p>
+    <button class="select" onclick='startGame(this)'>Start</button>
+  </div>
+
+  <div class="menu end hidden">
+    <div class="parent-menu">
+      <h1>Game over</h1>
+      <p>You hit: <span class="hits"></span></p>
+      <p>You missed: <span class="missed"></span></p>
+      <p>Ratio: <span class="ratio"></span></p>
+      <p><span class="message"></span></p>
+      <button class="select" onclick='resetGame(this)'>Reset</button>
+    </div>
+  </div>
+
+  <div class="ui-combo hidden">
+    <p>Combo: x <span class="n-combo">0</span></p>
+  </div>
 
   <canvas class="canvas"></canvas>
 
@@ -38,5 +61,19 @@
   <script src="utils/canvasUtils.js"></script>
   <script src="utils/initSetters.js"></script>
   <script src="main.js"></script>
+
+
+  <script>
+    let fileContent = "";
+
+    fetch("Record.txt")
+      .then(response => response.text())
+      .then(text => {
+        fileContent = text;
+        readText(text)
+      })
+      .catch(err => console.error("Failed to load file:", err));
+  </script>
 </body>
+
 </html>

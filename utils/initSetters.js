@@ -40,8 +40,9 @@ function _initSquares() {
 }
 
 function _setupTextCanvas() {
-  labelCanvas = _createCanvasText();
-  labelCtx = labelCanvas.getContext("2d");
+  $(".menu.end").hide();
+  // labelCanvas = _createCanvasText();
+  // labelCtx = labelCanvas.getContext("2d");
 }
 
 function _setupFlashCanvas() {

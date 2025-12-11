@@ -48,7 +48,8 @@ function _checkSquares(squares) {
        if (_isOutOfRange(square)) {
          shadow.setIndexToZero();
          miss++;
-         track = _deleteAtIndex(track, j);}
+         track = _deleteAtIndex(track, j);
+        }
      });
    });
    return squares;

@@ -1,21 +1,35 @@
 var reader;
 var recordsRedeables;
 var forCheck;
-function readText(filePath) {
-  reader = new FileReader();
-  var output = "";
-  if(filePath.files && filePath.files[0]) {
-      reader.onload = function (e) {
-          output = e.target.result;
-          forCheck = e.target.result;
-          recordsRedeables = _convertToRedeable(output);
-          recordsRedeables = _createObjects(recordsRedeables);
-          $(".select").hide();
-          playMusic();
 
-      };
-      reader.readAsText(filePath.files[0]);
-  }
+
+
+function readText(text) {
+  // reader = new FileReader();
+  // var output = "";
+  // if(filePath.files && filePath.files[0]) {
+  //     reader.onload = function (e) {
+  //         output = e.target.result;
+  //         forCheck = e.target.result;
+  //         recordsRedeables = _convertToRedeable(output);
+  //         recordsRedeables = _createObjects(recordsRedeables);
+  //         
+  //         playMusic();
+  //     };
+  //     reader.readAsText(filePath.files[0]);
+  // }
+
+  recordsRedeables = _convertToRedeable(text);
+  recordsRedeables = _createObjects(recordsRedeables);
+}
+
+function startGame() {
+  playMusic();
+  $(".menu").hide();
+}
+
+function resetGame() {
+  window.location.reload();
 }
 
 function _convertToRedeable(content) {
@@ -33,6 +47,7 @@ function _convertToRedeable(content) {
 
 function  _createObjects(content) {
   var newArray = [];
+
   for(var i = 0; i < content.length; i++){
     var aux = content[i];
     var forPush = [];

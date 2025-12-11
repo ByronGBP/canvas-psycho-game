@@ -5,7 +5,7 @@ function _checkHits(key){
   var hits = false;
   squars.every(function(square, index) {
     if (_collision(squareToCollision, square, track)) {
-      console.log("Colision at " + track +"!");
+      // console.log("Colision at " + track +"!");
       shadow.increase();
       squars = _deleteAtIndex(squars, index);
       hits = true;
