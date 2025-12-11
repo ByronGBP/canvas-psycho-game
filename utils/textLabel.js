@@ -36,9 +36,16 @@ function drawText() {
   $(".menu.end").show();
 
   if (ratio === Infinity) {
-    $(".message").text(`🤩`);
+    $(".message").text(`🤩🤩🤩🤩`);
   } else if (ratio > 1) {
-    $(".message").text(`👍`);
+    var msg = `👍`
+    if (ratio >  1.5) {
+      msg = `👍👍`
+    }
+    if (ratio > 2) {
+      msg = `👍👍👍`
+    }
+    $(".message").text(msg);
   } else {
     $(".message").text(`👎`);
   }
